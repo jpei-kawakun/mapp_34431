@@ -5,11 +5,18 @@
   </div>
 
   <div class="top-authentication text-center">
+  <% if user_signed_in? %>
+   <div class="top-authentication__sign-in-btn m-3">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
+    </div>
+  <% else %>
     <div class="top-authentication__sign-up-btn m-3">
-      <%= link_to "アカウントを作成する", new_user_registration_path, class: "btn text-white" %>
+      <%= link_to "アカウントを作成する", new_user_registration_path, class: "sign-up" %>
     </div>
     <div class="top-authentication__sign-in-btn m-3">
-      <%= link_to "ログイン", new_user_session_path, class: "btn text-white" %>
+      <%= link_to "ログイン", new_user_session_path, class: "login" %>
     </div>
+  <% end %>
+    
   </div>
 </div>
