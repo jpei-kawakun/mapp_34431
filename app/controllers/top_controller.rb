@@ -1,5 +1,6 @@
 class TopController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
   end
+
 end
