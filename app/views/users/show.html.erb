@@ -1,0 +1,23 @@
+<h1>ユーザー詳細</h1>
+
+<h3>ユーザー名</h3>
+<%= @user.name %>
+<h3>メールアドレス</h3>
+<%= @user.email %>
+<h3>生年月日</h3>
+<%= @user.birth_day %>
+<h3>性別</h3>
+<%= @user.gender %>
+<h3>趣味</h3>
+<%= @user.hobby %>
+<h3>自己紹介</h3>
+<%= @user.self_introduction %>
+<h3>プロフィール画像</h3>
+<% if @user.image.attached? %>
+  <%= image_tag @user.image %>
+<% end %>
+
+<%= link_to "編集", edit_user_registration_path %>
+
+<%= link_to "トップページに戻る", root_path %>
+

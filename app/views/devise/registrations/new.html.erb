@@ -49,6 +49,11 @@
           <%= f.text_area :self_introduction, class: "form-control", placeholder: "自己紹介" %>
         </div>
 
+        <div class="field">
+          <%= f.file_field :image %>
+        </div>
+  
+
         <div class="sign-up__submit-btn">
           <%= f.submit "登録", class: "btn btn-block text-white" %>
         </div>

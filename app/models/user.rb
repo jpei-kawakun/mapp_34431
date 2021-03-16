@@ -9,6 +9,7 @@ class User < ApplicationRecord
     validates :gender
     validates :hobby
     validates :self_introduction, length: { maximum: 200 }
+    validates :image
   end
 
     enum gender: { man: 0, woman: 1}

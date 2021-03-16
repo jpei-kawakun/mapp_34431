@@ -9,6 +9,7 @@
    <div class="top-authentication__sign-in-btn m-3">
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
     </div>
+    <%= link_to "マイページ", user_path(@users) %>
   <% else %>
     <div class="top-authentication__sign-up-btn m-3">
       <%= link_to "アカウントを作成する", new_user_registration_path, class: "sign-up" %>

@@ -24,7 +24,8 @@
     <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
   </div>
   <div class='login-btn'>
-    <%= f.submit "ログイン" ,class:"login-red-btn" %>
+    <p><%= f.submit "ログイン" ,class:"login-red-btn" %></p>
   </div>
+    <p><%= link_to "新規登録はこちらから", new_user_registration_path %></p>
 </div>
 <% end %>
