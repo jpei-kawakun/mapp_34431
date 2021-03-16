@@ -12,4 +12,6 @@ class User < ApplicationRecord
   end
 
     enum gender: { man: 0, woman: 1}
+
+    has_one_attached :image
 end
