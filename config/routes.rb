@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root 'top#index'
+  devise_for :users
+
+  root to: 'top#index'
+
+  resources :users, only: :show
 end
