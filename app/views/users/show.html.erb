@@ -17,6 +17,8 @@
   <%= image_tag @user.image %>
 <% end %>
 
+<%= render "relationships/follow_button"%>
+
 <%= link_to "編集", edit_user_registration_path %>
 
 <%= link_to "トップページに戻る", root_path %>
