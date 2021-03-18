@@ -9,7 +9,7 @@
    <div class="top-authentication__sign-in-btn m-3">
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
     </div>
-    <%= link_to "マイページ", user_path(@users) %>
+    <%= link_to "マイページ", user_path(current_user.id) %>
   <% else %>
     <div class="top-authentication__sign-up-btn m-3">
       <%= link_to "アカウントを作成する", new_user_registration_path, class: "sign-up" %>
@@ -19,9 +19,11 @@
     </div>
   <% end %>
 
-  <% @users.each do |user| %>
-   
-  <% end %>
-    
-  </div>
-</div>
+   <% @users.each do |user|%>
+        <%= link_to user_path (user.id) do %>
+         <div class='user-img-content'>
+           <%= image_tag user.image, class: "user-img" %>
+         </div>
+        <% end %>
+
+   <% end %>
