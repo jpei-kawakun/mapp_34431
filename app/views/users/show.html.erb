@@ -3,7 +3,9 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>User Details</h2>
       <h5>ユーザーの詳細</h5>
+      <% if user_signed_in? && current_user.id == @user.id %>
        <%= link_to "編集", edit_user_registration_path, class: 'btn'%>
+      <% end %>
        <%= link_to "トップページに戻る", root_path, class: 'btn' %>
     </div>
     <div class='account-page__inner--right user-form'>
