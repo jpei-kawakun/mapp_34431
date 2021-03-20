@@ -1,24 +1,61 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
+| email    | string | null: false, unique:true |
+| encrypted_password | string | null: false |
+| gender | integer | null: false |
+| hobby | string | null: false |
+| self_introduction | text | null: false |
+| birth_day | date | null: false |
+### Association
 
-* Ruby version
+ - has_many :relationships
+ - has_many :followings, through: :relationships, source: :follow
+ - has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key:  'follow_id'
+ - has_many :followers, through: :reverse_of_relationships, source: :user
 
-* System dependencies
+## relationships テーブル
 
-* Configuration
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| user | references | null: false, foreign_key: true |
+| follow | references | null: false, foreign_key: true: { to_table: :users } |
 
-* Database creation
+### Association
 
-* Database initialization
+ - belongs_to :user
+ - belongs_to :follow, class_name: 'User'
 
-* How to run the test suite
+## purchases テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
-* Deployment instructions
+### Association
+- has_one :destination
+- belongs_to :user
+- belongs_to :item
 
-* ...
+## destinations テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| post_code   | string | null: false |
+| prefecture_id   | integer | null: false |
+| city   | string | null: false |
+| address   | string | null: false |
+| building_name   | string |  
+| phone_number   | string | null: false |
+| purchase   | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :purchase
+
