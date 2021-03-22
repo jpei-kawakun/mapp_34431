@@ -7,6 +7,7 @@
        <%= link_to "編集", edit_user_registration_path, class: 'btn'%>
       <% end %>
        <%= link_to "トップページに戻る", root_path, class: 'btn' %>
+       <%= link_to "メッセージを送る", new_room_path, class: 'btn' %>
     </div>
     <div class='account-page__inner--right user-form'>
         <div class='field'>
@@ -50,5 +51,8 @@
 </div>
 
 <%= render "relationships/follow_button"%>
+
+
+
 
 
