@@ -40,6 +40,9 @@
  - has_many :followings, through: :relationships, source: :follow
  - has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key:  'follow_id'
  - has_many :followers, through: :reverse_of_relationships, source: :user
+ - has_many :room_users
+ - has_many :rooms, through: :room_users
+ - has_many :messages
 
 ## relationships テーブル
 
@@ -53,34 +56,42 @@
  - belongs_to :user
  - belongs_to :follow, class_name: 'User'
 
-## purchases テーブル
+## room テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| item   | references | null: false, foreign_key: true |
-| user   | references | null: false, foreign_key: true |
+| name   | string | null: false |
 
 ### Association
-- has_one :destination
-- belongs_to :user
-- belongs_to :item
+ - has_many :room_users
+ - has_many :users, through: :room_users
+ - has_many :messages
 
-## destinations テーブル
+## room_users テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| post_code   | string | null: false |
-| prefecture_id   | integer | null: false |
-| city   | string | null: false |
-| address   | string | null: false |
-| building_name   | string |  
-| phone_number   | string | null: false |
-| purchase   | references | null: false, foreign_key: true |
-
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| user | references | null: false, foreign_key: true |
+| room | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchase
+ - belongs_to :room
+ - belongs_to :user
+
+
+## message テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| content | string | null: false |
+| user | references | null: false, foreign_key: true |
+| room | references | null: false, foreign_key: true |
+
+### Association
+
+ - belongs_to :room
+ - belongs_to :user
 
 # ローカルでの動作方法
 
