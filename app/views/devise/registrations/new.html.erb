@@ -40,19 +40,6 @@
             <%= f.password_field :password_confirmation, autocomplete: "off"%>
           </div>
           <div class='field-label'>
-            <%= f.label :gender%>
-          </div>
-          <div class='field-input'>
-            <label class="btn btn-light flex-fill mr-2 active">
-            <%= f.radio_button :gender, :man, class: "form-check-input" %>
-            <label class="form-check-label">man</label>
-          </label>
-          <label class="btn btn-light flex-fill">
-            <%= f.radio_button :gender, :woman, class: "form-check-input" %>
-            <label class="form-check-label">woman</label>
-          </label>
-          </div>
-          <div class='field-label'>
             <%= f.label :birth_day %>
           </div>
           <%= raw sprintf(
