@@ -1,15 +1,9 @@
-<div class="jumbotron">
-  <div class="container">
-    <nav class="navbar navbar-light">
-      <h1>マッチングを探す</h1>
-  </div>
-
-  <div class="top-authentication text-center">
+<div class="top-authentication text-center">
   <% if user_signed_in? %>
    <div class="top-authentication__sign-in-btn m-3">
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
     </div>
-    <%= link_to "マイページ", user_path(current_user.id) %>
+    <%= link_to current_user.name, user_path(current_user.id) %>
   <% else %>
     <div class="top-authentication__sign-up-btn m-3">
       <%= link_to "アカウントを作成する", new_user_registration_path, class: "sign-up" %>
@@ -18,12 +12,60 @@
       <%= link_to "ログイン", new_user_session_path, class: "login" %>
     </div>
   <% end %>
+  
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      0.0004％
+    </h2>
 
-   <% @users.each do |user|%>
-        <%= link_to user_path (user.id) do %>
-         <div class='user-img-content'>
-           <%= image_tag user.image, class: "user-img" %>
-         </div>
-        <% end %>
+    <div class='user-contents'>
+     <h2 class='title'>マッチングを探す</h2>
+    <ul class='user-lists'>
 
-   <% end %>
+       <% @users.each do |user|%>
+           <%= link_to user_path (user.id) do %>
+             <div class='user-img-content'>
+                <%= image_tag user.image, class: "user-img" %>
+              </div>
+            <% end %>
+       <% end %>
+    </ul>
+
+   </div>
+
+    <div class='feature-contents'>
+    <h2 class='title'>
+      0.0004%の特徴
+    </h2>
+    <ul class='feature-lists'>
+      <li class='list'>
+        <%= image_tag "mapp_intro01.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          すぐに繋がれる
+        </h3>
+        <p class='feature-list-description'>
+          登録すればマッチ可能
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "mapp_intro02.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          登録簡単/手軽
+        </h3>
+        <p class='feature-list-description'>
+          メアドとプロフィールを登録するだけ/手軽で簡単に登録可能
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "mapp_intro03.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          様々な要望に対応
+        </h3>
+        <p class='feature-list-description'>
+          恋人探し、友人探し、お仕事探し あなたのニーズに合わせたマッチが可能
+        </p>
+      </li>
+    </ul>
+  </div>
+
+   

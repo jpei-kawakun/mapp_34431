@@ -1,33 +1,60 @@
-<div class="contents row">
-  <div class="container">
-    <h2>新規登録</h2>
-    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="form-group">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h2>Create Account</h2>
+      <h5>新規アカウントの作成</h5>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
+        <%= devise_error_messages!%>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :name%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :name, autofocus: true%>
+          </div>
         </div>
-
-        <div class="form-group">
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード" %>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :email%>
+          </div>
+          <div class='field-input'>
+            <%= f.email_field :email%>
+          </div>
         </div>
-
-        <div class="form-group">
-          <%= f.text_field :name, class: "form-control", placeholder: "ニックネーム" %>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :password%>
+            <i>(英数字6文字以上)</i>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password, autocomplete: "off"%>
+          </div>
         </div>
-
-        <div class="btn-group btn-group-toggle d-flex mb-3" data-toggle="buttons">
-          <label class="btn btn-light flex-fill mr-2 active">
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :password_confirmation%>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password_confirmation, autocomplete: "off"%>
+          </div>
+          <div class='field-label'>
+            <%= f.label :gender%>
+          </div>
+          <div class='field-input'>
+            <label class="btn btn-light flex-fill mr-2 active">
             <%= f.radio_button :gender, :man, class: "form-check-input" %>
-            <label class="form-check-label">男性</label>
+            <label class="form-check-label">man</label>
           </label>
           <label class="btn btn-light flex-fill">
             <%= f.radio_button :gender, :woman, class: "form-check-input" %>
-            <label class="form-check-label">女性</label>
+            <label class="form-check-label">woman</label>
           </label>
-        </div>
-
-        <div class='input-birth-wrap'>
+          </div>
+          <div class='field-label'>
+            <%= f.label :birth_day %>
+          </div>
           <%= raw sprintf(
                   f.date_select(
                     :birth_day,
@@ -39,24 +66,30 @@
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-        </div>
 
-        <div class="form-group">
-          <%= f.text_field :hobby, class: "form-control", placeholder: "趣味" %>
+          <div class='field-label'>
+            <%= f.label :hobby %>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :hobby, autofocus: true%>
+          </div>
+          <div class='field-label'>
+            <%= f.label :self_introduction %>
+          </div>
+          <div class='field-input'>
+            <%= f.text_area :self_introduction, autofocus: true%>
+          </div>
+          <div class='field-label'>
+            <%= f.label :profile_pic %>
+          </div>
+          <div class='field-input'>
+            <%= f.file_field :image, autofocus: true%>
+          </div>
         </div>
-
-        <div class="form-group">
-          <%= f.text_area :self_introduction, class: "form-control", placeholder: "自己紹介" %>
+        <div class='actions'>
+          <%= f.submit "Create Account", class: 'btn'%>
         </div>
-
-        <div class="field">
-          <%= f.file_field :image %>
-        </div>
-  
-
-        <div class="sign-up__submit-btn">
-          <%= f.submit "登録", class: "btn btn-block text-white" %>
-        </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
