@@ -2,50 +2,48 @@
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
       <h2>User Details</h2>
-      <h5>ユーザーの詳細</h5>
       <% if user_signed_in? && current_user.id == @user.id %>
-       <%= link_to "編集", edit_user_registration_path, class: 'btn'%>
+       <%= link_to "Edit", edit_user_registration_path, class: 'btn'%>
       <% end %>
-       <%= link_to "トップページに戻る", root_path, class: 'btn' %>
-       <%= link_to "メッセージを送る", new_room_path, class: 'btn' %>
+       <%= link_to "Top", root_path, class: 'btn' %>
+       <%= link_to "Message", new_room_path, class: 'btn' %>
     </div>
     <div class='account-page__inner--right user-form'>
         <div class='field'>
           <div class='field-label'>
-            <h3>ユーザー名</h3>
+            <h3>Name</h3>
               <%= @user.name %>
           </div>
         </div>
         <div class='field'>
           <div class='field-label'>
-            <h3>メールアドレス</h3>
+            <h3>Email</h3>
              <%= @user.email %>
           </div>
         </div>
         <div class='field'>
           <div class='field-label'>
-            <h3>生年月日</h3>
+            <h3>Birthday</h3>
             <%= @user.birth_day %>
           </div>
           <div class='field-label'>
-            <h3>趣味</h3>
+            <h3>Hobby</h3>
             <%= @user.hobby %>
           </div>
           <div class='field-label'>
-            <h3>自己紹介</h3>
+            <h3>Profile</h3>
              <%= @user.self_introduction %> 
           </div>
           <div class='field-label'>
-            <h3>プロフィール画像</h3>
+            <h3>Icon</h3>
               <% if @user.image.attached? %>
                  <%= image_tag @user.image, class: "user-img" %>
               <% end %>
           </div>
       </div>
   </div>
+  <%= render "relationships/follow_button"%>
 </div>
-
-<%= render "relationships/follow_button"%>
 
 
 

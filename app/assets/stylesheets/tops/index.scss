@@ -1,5 +1,3 @@
-
-
 a {
   text-decoration: none;
 }
@@ -20,19 +18,19 @@ a {
   align-items: flex-start;
   justify-content: center;
   padding: 5vh 15vw;
-  color: rgb(247, 252, 245);
+  color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  height: 500px;
 }
 
 .service-title {
-  font-size: 8vh;
-  text-align: center;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 10vh;
 }
 
 .service-explain {
   font-size: 2.5vh;
   line-height: 40px;
-  text-align: center;
 }
 
 .store-btn {
@@ -91,7 +89,8 @@ a {
 
 .list-pict {
   margin-bottom: 20px;
-  width: 100%;
+   width: 33vh;
+   height: 33vh;
 }
 
 .reason-list-number {
@@ -167,7 +166,7 @@ a {
 
 /* //画面中央の「会員数日本一位」帯部分 */
 
-/* マッチングの特徴 */
+/* FURIMAの特徴 */
 .feature-contents {
   padding: 5vh 15vw;
 }
@@ -215,23 +214,24 @@ a {
   margin-top: 20px;
 }
 
+/* //FURIMAの特徴 */
 
-
-/* user一覧 */
+/* 商品一覧 */
 
 .user-contents {
   background-color: #FFF;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 20vh 5vh;
+  font-family: 'Corben', cursive;
 }
 
 .user-contents>.title {
   font-size: 5vh;
   line-height: 1.4;
   font-weight: bold;
-  text-align: center;
+  color: black;
 }
 
 .user-contents>.subtitle {
@@ -313,111 +313,4 @@ a {
   font-size: 2vh;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.search-bar-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.furima-icon {
-  width: 10vw;
-  margin-right: 10vw;
-}
-
-.search-form {
-  width: 65vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #3ccace;
-  padding: 8px;
-}
-
-.search-icon {
-  width: 100%;
-}
-
-.nav {
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
-}
-
-.lists-left {
-  display: flex;
-  min-width: 200px;
-
-}
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.brand-list {
-  text-decoration: none;
-  color: #333333;
-}
-
-.lists-right {
-  display: flex;
-  list-style: none;
-  align-items: flex-end;
-}
-
-
-.user-name {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-weight: bold;
-}
-
-
-.logout {
-  text-decoration: none;
-  color: #333333;
-}
-
-.login {
-  text-decoration: none;
-  line-height: 32px;
-  margin-left: 300px;
-  color: #333333;
-}
-
-.sign-up {
-  text-decoration: none;
-  color: #333333;
-}
-
-
-
-
+/* //商品一覧 */
